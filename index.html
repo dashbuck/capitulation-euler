@@ -29,7 +29,7 @@
   </p>
 
   <script>
-    const { List, Set } = require('immutable')
+    const { List, Set, Map } = require('immutable')
 
 const emptyList = List()
 // List []
@@ -46,9 +46,8 @@ const arrayIterator = plainArray[Symbol.iterator]()
 const listFromCollectionArray = List(arrayIterator)
 // List [ 1, 2, 3, 4 ]
 
-document.getElementById("answer").innerHTML = plainArray;
+document.getElementById("answer").innerHTML = "Hello I'm text";
   </script>
-
 
 </body>
 </html>
