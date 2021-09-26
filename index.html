@@ -15,6 +15,8 @@
   <meta property="og:description" content="this is inelegant and demeaning but if it works I suppose I'll have to live with it.">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.15/immutable.min.js" integrity="sha512-43wZmDf1EuxAbbihsteGzIoVi2iqeuPhQo7tt4FbXFIqCF2yG7vB1OX64kTNiONt24Uf6kUVK63q6ed/JQsX4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </head>
 
@@ -22,6 +24,28 @@
   <h1>IGUESS.gif</h1>
 
   Hello, I am a small change...
-  <script src="js/scripts.js"></script>
+
+  I am ALSO a change but I happened after we started syncing...I guess? What does syncing Truly Mean
+
+  <script>
+    const { List, Set } = require('immutable@4.0.0-rc.15')
+
+const emptyList = List()
+// List []
+
+const plainArray = [ 1, 2, 3, 4 ]
+const listFromPlainArray = List(plainArray)
+// List [ 1, 2, 3, 4 ]
+
+const plainSet = Set([ 1, 2, 3, 4 ])
+const listFromPlainSet = List(plainSet)
+// List [ 1, 2, 3, 4 ]
+
+const arrayIterator = plainArray[Symbol.iterator]()
+const listFromCollectionArray = List(arrayIterator)
+// List [ 1, 2, 3, 4 ]
+
+
+  </script>
 </body>
 </html>
