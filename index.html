@@ -22,17 +22,23 @@
 
 <body>
   <h1>IGUESS.gif</h1>
+  <h2>Euler 1</h2>
+    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 
-  <p>Paragraphs!? </p>
-
-  <p id="answer">
-  </p>
+    <p id="answer"></p>
 
 <script>
+const { List, Set } = require('immutable')
 
-var answer = "I'm still text"
+const natNum010 = [0,1,2,3,4,5,6,7,8,9,10]
 
-document.getElementById("answer").innerHTML = answer;
+const E1range = List(natNum010)
+
+
+const answer = natNum010
+
+document.getElementById("answer").innerHTML = answer
 
 </script>
 </body>
