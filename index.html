@@ -23,12 +23,13 @@
 <body>
   <h1>IGUESS.gif</h1>
 
-  Hello, I am a small change...
+  <p>Paragraphs!?</p>
 
-  I am ALSO a change but I happened after we started syncing...I guess? What does syncing Truly Mean?
+  <p id="answer">
+  </p>
 
   <script>
-    const { List, Set } = require('immutable@4.0.0-rc.15')
+    const { List, Set } = require('immutable')
 
 const emptyList = List()
 // List []
@@ -45,7 +46,9 @@ const arrayIterator = plainArray[Symbol.iterator]()
 const listFromCollectionArray = List(arrayIterator)
 // List [ 1, 2, 3, 4 ]
 
-
+document.getElementById("answer").innerHTML = plainArray;
   </script>
+
+
 </body>
 </html>
