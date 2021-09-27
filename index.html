@@ -47,7 +47,7 @@ const filteredRange = natNum19.filter((a) => {
   return a % 3 == 0 || a % 5 == 0;
 });
 
-const answer = filteredRange.reduce(acc, cur) => {
+const answer = filteredRange.reduce((acc, cur) => {
   return acc + cur;
 }, 0);
 
