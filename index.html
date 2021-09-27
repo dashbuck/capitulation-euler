@@ -51,7 +51,7 @@ function miniFib (a, b) {
 
 
 
-document.getElementById("answer2").innerHTML = miniFib(natNum19.slice(-2));
+document.getElementById("answer2").innerHTML = miniFib(natNum19.slice(-2),natNum19.slice(-1));
 
 //1
 
@@ -59,7 +59,7 @@ const filteredRange1 = natNum1999.filter((a) => {
   return a % 3 == 0 || a % 5 == 0;
 });
 
-const answer1 = filteredRange.reduce((acc, cur) => {
+const answer1 = filteredRange1.reduce((acc, cur) => {
   return acc + cur;
 }, 0);
 
