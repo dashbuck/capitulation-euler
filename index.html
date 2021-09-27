@@ -15,8 +15,6 @@
   <meta property="og:description" content="this is inelegant and demeaning but if it works I suppose I'll have to live with it.">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.15/immutable.js" integrity="sha512-vZNMLtqBps5SZbYc/IFm52qKxP4FqXAGWdSjpHhi5Wr/AiUf2hblHg+eyMT9ZSGqSFYrgPWp/XjS5ney6QOdAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-
 
 </head>
 
@@ -29,17 +27,22 @@
     <p id="answer"></p>
 
 <script>
-////const { List, Set } = require('immutable');
 
 const natNum010 = [0,1,2,3,4,5,6,7,8,9,10];
 
-////const E1range = List(natNum010);
-
-
-const answer = natNum010;
+const answer = natNum010.filter((a) => { 
+  return a % 3 = 0 || a % 5 = 0;
+});
 
 document.getElementById("answer").innerHTML = answer;
 
 </script>
 </body>
 </html>
+function isBigEnough(value) {
+  return value >= 10
+}
+
+let filtered = [12, 5, 8, 130, 44].filter(isBigEnough)
+// filtered is [12, 130, 44]
+
