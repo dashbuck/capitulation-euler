@@ -31,11 +31,11 @@
 //Sequence generator from Mozilla JS docs
 const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
 
-const natNum11000 = range(1,1000,1);
+const natNum1999 = range(1,999,1);
 
 const natNum19 = [1,2,3,4,5,6,7,8,9];
 
-const filteredRange = natNum19.filter((a) => { 
+const filteredRange = natNum1999.filter((a) => { 
   return a % 3 == 0 || a % 5 == 0;
 });
 
@@ -43,7 +43,7 @@ const answer = filteredRange.reduce((acc, cur) => {
   return acc + cur;
 }, 0);
 
-document.getElementById("answer").innerHTML = natNum11000;
+document.getElementById("answer").innerHTML = filteredRange.join(' ');
 
 </script>
 </body>
