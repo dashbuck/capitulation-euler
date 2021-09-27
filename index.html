@@ -31,7 +31,7 @@
 const natNum010 = [0,1,2,3,4,5,6,7,8,9,10];
 
 const answer = natNum010.filter((a) => { 
-  return a % 3 = 0 || a % 5 = 0;
+  return a % 3 == 0 || a % 5 == 0;
 });
 
 document.getElementById("answer").innerHTML = answer;
@@ -39,10 +39,3 @@ document.getElementById("answer").innerHTML = answer;
 </script>
 </body>
 </html>
-function isBigEnough(value) {
-  return value >= 10
-}
-
-let filtered = [12, 5, 8, 130, 44].filter(isBigEnough)
-// filtered is [12, 130, 44]
-
