@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://emdashbuck.github.io/capitulation-euler">
   <meta property="og:description" content="this is inelegant and demeaning but if it works I suppose I'll have to live with it.">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/immutable@4.0.0-rc.14/dist/immutable.min.js"></script>
 
 </head>
 
@@ -34,6 +34,18 @@
   
   <p id="answer2"></p>
 
+  <p id="test"></p>
+  <script>
+    //Going to try using immutable.js again
+    var map1 = Immutable.Map({ a: 1, b: 2, c: 3 });
+    var map2 = map1.set('b', 50);
+    map1.get('b'); // 2
+    map2.get('b'); // 50
+
+    document.getElementById("test").innerHTML = map2.get('b');
+
+  </script>
+
 <script>
 
 //Sequence generator from Mozilla JS docs
@@ -41,7 +53,13 @@ const natNumRange = (start, stop, step) => Array.from({ length: (stop - start) /
 
 const natNum1999 = natNumRange(1,999,1);
 const natNum19 = [1,2,3,4,5,6,7,8,9];
+
+
+
 //2
+
+//Ok to use mutable var as long as it remains inside the code block (no side effects).
+
 //take in two numbers, return them and the sum as an array
 function miniFib (a, b) {
   return [a, b, (a + b)];
@@ -74,6 +92,16 @@ const filteredRange1 = natNum1999.filter((a) => {
   return a % 3 == 0 || a % 5 == 0;
 });
 
+
+
+document.getElementById("answer2").innerHTML = answer2;
+
+//1
+
+const filteredRange1 = natNum1999.filter((a) => { 
+  return a % 3 == 0 || a % 5 == 0;
+});
+
 const answer1 = filteredRange1.reduce((acc, cur) => {
   return acc + cur;
 }, 0);
@@ -82,8 +110,6 @@ document.getElementById("answer1").innerHTML = answer1;
 
 
 
-//Notes
-// https://www.npmjs.com/package/http-server
 
 
 </script>
