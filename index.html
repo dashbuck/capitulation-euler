@@ -56,7 +56,7 @@ const natNum19 = [1,2,3,4,5,6,7,8,9];
 
 
 
-//2
+//============================      2     ============================
 
 //Ok to use mutable var as long as it remains inside the code block (no side effects).
 
@@ -65,38 +65,31 @@ function miniFib (a, b) {
   return [a, b, (a + b)];
 }
 
-//take in an array, return the array but add the sum of the last two items to the end
-
-function fib (arr) {
-  return [arr, (arr[arr.length - 2] + arr[arr.length - 1])
-  ];
-
-}
-
-const fibSeq = Array.of(1,2).map((num,ind,arr) => {
-  return [num, (num + arr[ind - 1])]
-});
-
-
-// okay, we can reference the original array when building the new one, cool
-const sortakinda = natNum19.map((num, ind) => { 
-
-  return ['start',num, natNum19[ind - 1],'end'];
- });
-
-document.getElementById("answer2").innerHTML = fibSeq;
-
-//1
-
-const filteredRange1 = natNum1999.filter((a) => { 
-  return a % 3 == 0 || a % 5 == 0;
-});
 
 
 
-document.getElementById("answer2").innerHTML = answer2;
+function fibSeq(array) {
+  console.log("running fibSeq")
+  let CurrentArray = array;
+  console.log("CurrentArray ",CurrentArray," passed value ",array);
+  if (array[array.length -1] < 10) {
+    console.log ("needs updating");
+    return updateArr(CurrentArray);
+  } else { console.log ("ready ",array); return CurrentArray; };
+};
 
-//1
+function updateArr (NeedsUpdating){ 
+    console.log ("running updateArr")
+    let NewArray = NeedsUpdating;
+    console.log("NewArray ", NewArray," passed value ", NeedsUpdating);
+    NewArray.push(10);
+    console.log ("NewArray is updated", NewArray);
+    return fibSeq(NewArray);
+};
+
+document.getElementById("answer2").innerHTML = fibSeq([1,2,3]);
+
+//============================      1     ============================
 
 const filteredRange1 = natNum1999.filter((a) => { 
   return a % 3 == 0 || a % 5 == 0;
