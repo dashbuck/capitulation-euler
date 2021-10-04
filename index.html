@@ -17,6 +17,7 @@
 
 <body>
   <h1>IGUESS.gif</h1>
+  <p id="test"></p>
   <h2>Euler 1</h2>
   <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
   <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
@@ -33,12 +34,79 @@
   <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
   <p>What is the largest prime factor of the number 600851475143 ?</p>
   <p id="answer3"></p>
+  <p id="test"></p>
   
 <script>
+//============================ Useful bits
+
+//Sequence generator from Mozilla JS docs
+const natNumRange = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+
+const natNum1999 = natNumRange(1,999,1);
+const natNum19 = [1,2,3,4,5,6,7,8,9];
+const natNum29 = [2,3,4,5,6,7,8,9];
 
 //============================      3     ============================
 
+// const answer3 = "AHAHAHAHAHA";
 
+
+// function commonPrimeDiv(ele) {
+//     if      (ele % 2 == 0) { return (ele / 2) } 
+//     else if (ele % 3 == 0) { return (ele / 3) } 
+//     else if (ele % 5 == 0) { return (ele / 5) } 
+//     else if (ele % 7 == 0) { return (ele / 7) } 
+//     else if (ele % 11 == 0) { return (ele / 11) } 
+//     else if (ele % 13 == 0) { return (ele / 13) } 
+//     else if (ele % 17 == 0) { return (ele / 17) } 
+//     else if (ele % 19 == 0) { return (ele / 19) } 
+//     else if (ele % 23 == 0) { return (ele / 23) } 
+//     else if (ele % 29 == 0) { return (ele / 29) } 
+//     else if (ele % 31 == 0) { return (ele / 31) } 
+//     else { return ele };
+//   };
+
+
+//Have just realized I missed a step: gotta find the factors first!?
+// const natNum13195 = natNumRange(2,13195,1);
+// const prime13195 = rangetoPrime(Array(),natNum13195);
+// const natNum600851475143 = natNumRange(600000000000,600851475143,2);
+// const prime600851475143 = rangetoPrime(Array(),natNum600851475143);
+// const answer3 = prime13195.filter((ele,ind,arr) => { return 600851475143 % ele == 0; });
+
+// document.getElementById("answer3").innerHTML = answer3;
+
+// function rangetoPrime(primeRange, testRange) {
+//   if (testRange.length == 0) { return primeRange; }
+//   else { 
+//     return updaterangetoPrime(primeRange,testRange);
+//   }
+// };
+
+// function updaterangetoPrime (primeRange,testRange){ 
+//     primeRange.push(testRange[0]);
+//     let tested = testRange.filter((ele,ind,arr) => { return ele % arr[0] != 0; });
+//     return rangetoPrime(primeRange,tested);
+// };
+
+// const test = natNum29.filter((ele,ind,arr) => { return ele % arr[0] != 0; });
+// document.getElementById("test").innerHTML = test;
+
+
+
+// To find all the prime numbers less than or equal to a given integer n by Eratosthenes' method:
+
+//     Create a list of consecutive integers from 2 through n: (2, 3, 4, ..., n).
+//     Initially, let p equal 2, the smallest prime number.
+//     Enumerate the multiples of p by counting in increments of p from 2p to n, and mark them in the list (these will be 2p, 3p, 4p, ...; the p itself should not be marked).
+//     Find the smallest number in the list greater than p that is not marked. If there was no such number, stop. Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.
+//     When the algorithm terminates, the numbers remaining not marked in the list are all the primes below n.
+
+// The main idea here is that every value given to p will be prime, because if it were composite it would be marked as a multiple of some other, smaller prime. Note that some of the numbers may be marked more than once (e.g., 15 will be marked both for 3 and 5).
+
+// As a refinement, it is sufficient to mark the numbers in step 3 starting from p2, as all the smaller multiples of p will have already been marked at that point. This means that the algorithm is allowed to terminate in step 4 when p2 is greater than n.[1]
+
+// Another refinement is to initially list odd numbers only, (3, 5, ..., n), and count in increments of 2p from p2 in step 3, thus marking only odd multiples of p. This actually appears in the original algorithm.[1] This can be generalized with wheel factorization, forming the initial list only from numbers coprime with the first few primes and not just from odds (i.e., numbers coprime with 2), and counting in the correspondingly adjusted increments so that only such multiples of p are generated that are coprime with those small primes, in the first place.
 
 
 
@@ -82,11 +150,7 @@ const answer1 = filteredRange1.reduce((acc, cur) => {
 
 document.getElementById("answer1").innerHTML = answer1;
 
-//Sequence generator from Mozilla JS docs
-const natNumRange = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
 
-const natNum1999 = natNumRange(1,999,1);
-const natNum19 = [1,2,3,4,5,6,7,8,9];
 
 </script>
 </body>
