@@ -44,6 +44,7 @@ const natNumRange = (start, stop, step) => Array.from({ length: (stop - start) /
 const natNum1999 = natNumRange(1,999,1);
 const natNum19 = [1,2,3,4,5,6,7,8,9];
 const natNum29 = [2,3,4,5,6,7,8,9];
+const natNumOdd3999 = natNumRange(3,999,2);
 
 //============================      3     ============================
 
@@ -53,18 +54,24 @@ const natNum29 = [2,3,4,5,6,7,8,9];
 //🧶 To find all the prime numbers less than or equal to a given integer n by Eratosthenes' method:
 
 //🧶 1. Create a list of consecutive integers from 2 through n: (2, 3, 4, ..., n).
-const e3range = natNumRange(2,99,1);
-const e3answer = e3createPrimeList(e3range); 
+const e3OddRange = natNumRange(3,13195,2);
+const e3add2tofront = [2,e3OddRange];
+const e3range = e3add2tofront.flat(2);
+console.log(e3range);
+var primesList = []; //NOT functional but at least it's only ever changed by the function createPrimesList :(
+var runCounter = 0;
+const e3answer = e3createPrimesList(e3range);
+document.getElementById("e3answer").innerHTML = e3answer;
 
 //🧶 2. Initially, let p equal 2, the smallest prime number.
 //🧶 4. Find the smallest number in the list greater than p that is not marked. If there was no such number, stop. Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.
-function e3createPrimeList (potentialPrimes) { 
-  let primesList = [];
+function e3createPrimesList (potentialPrimes) { 
   //begin with the quit condition. We're removing nonprimes instead of marking them, so if the list is empty we're done
-if (potentialPrimes.length == 0) { console.log("no potentials ", potentialPrimes.length); return primesList }
+if (potentialPrimes.length == 0) { console.log("no potentials ", potentialPrimes.join()); return primesList }
 else {
-  primesList.push(potentialPrimes.pop()); //No marked numbers, so first item will always be the next prime
-  return e3pIncrementCount(potentialPrimes, primesList[-1]);
+  let p = potentialPrimes.shift();
+  primesList.push(p); //No marked numbers, so first item will always be the next prime
+  return e3pIncrementCount(potentialPrimes, p);
   };
 }
 
@@ -72,7 +79,7 @@ else {
 function e3pIncrementCount (potentialPrimes, p) {
   let countArr = e3range.map(val => val * p); //returns a list of multiples of p
   let newpotentialPrimes = potentialPrimes.filter((val,ind,arr) => { return (countArr.includes(val) ? false : true) }); //marked in list by removing them from the list
-  return e3createPrimeList(newpotentialPrimes); //pass it back to see if we're done
+  return e3createPrimesList(newpotentialPrimes); //pass it back to see if we're done
 }
 
 
