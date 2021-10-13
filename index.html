@@ -48,23 +48,35 @@ const natNum29 = [2,3,4,5,6,7,8,9];
 
 //============================      3     ============================
 
-// const answer3 = "AHAHAHAHAHA";
+ const answer3 = commonPrimeDiv(100);
+ document.getElementById("answer3").innerHTML = answer3;
 
+ function primeDiv3(evalNum) {
+  if (evalNum == commonPrimeDiv(evalNum)) {
+    return updateprimeDiv3(evalNum);
+  } else { return evalNum; };
+};
 
-// function commonPrimeDiv(ele) {
-//     if      (ele % 2 == 0) { return (ele / 2) } 
-//     else if (ele % 3 == 0) { return (ele / 3) } 
-//     else if (ele % 5 == 0) { return (ele / 5) } 
-//     else if (ele % 7 == 0) { return (ele / 7) } 
-//     else if (ele % 11 == 0) { return (ele / 11) } 
-//     else if (ele % 13 == 0) { return (ele / 13) } 
-//     else if (ele % 17 == 0) { return (ele / 17) } 
-//     else if (ele % 19 == 0) { return (ele / 19) } 
-//     else if (ele % 23 == 0) { return (ele / 23) } 
-//     else if (ele % 29 == 0) { return (ele / 29) } 
-//     else if (ele % 31 == 0) { return (ele / 31) } 
-//     else { return ele };
-//   };
+function updateprimeDiv3 (UpdateMe){ 
+    let update = commonPrimeDiv(UpdateMe);
+    return primeDiv3(update);
+};
+
+function commonPrimeDiv(ele) {
+     if ([ 2,3,5,7,11,17,19,23,29,31 ].includes(ele)) { print.log("already prime"); return (ele) } 
+     else if (ele %  2 == 0) { return (ele /  2) } 
+     else if (ele %  3 == 0) { return (ele /  3) } 
+     else if (ele %  5 == 0) { return (ele /  5) } 
+     else if (ele %  7 == 0) { return (ele /  7) } 
+     else if (ele % 11 == 0) { return (ele / 11) } 
+     else if (ele % 13 == 0) { return (ele / 13) } 
+     else if (ele % 17 == 0) { return (ele / 17) } 
+     else if (ele % 19 == 0) { return (ele / 19) } 
+     else if (ele % 23 == 0) { return (ele / 23) } 
+     else if (ele % 29 == 0) { return (ele / 29) } 
+     else if (ele % 31 == 0) { return (ele / 31) } 
+     else { print.log("could be prime"); return ele };
+   };
 
 
 //Have just realized I missed a step: gotta find the factors first!?
